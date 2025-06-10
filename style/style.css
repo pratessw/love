@@ -1,0 +1,173 @@
+/* Reset básico para o preloader */
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000; /* fundo preto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* maior que bootstrap */
+}
+
+.heart-loader span {
+  font-size: 2rem;
+  animation: pulse 1.2s ease-in-out infinite alternate;
+  display: inline-block;
+  margin: 0 0.3rem;
+}
+
+.heart-loader span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+/* Animação pulso suave */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+}
+
+/* Fade-in usado em seções */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 0.5s;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Efeito brilho simples */
+#efeito-brilho {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 80%);
+  border-radius: 50%;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: glow 3s ease-in-out infinite alternate;
+  pointer-events: none;
+  display: none;
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.3;
+    filter: drop-shadow(0 0 5px #fff);
+  }
+  to {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 20px #ff7300);
+  }
+}
+
+/* Efeito corações animados */
+#efeito-coracoes {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 200px;
+  z-index: 1020;
+  display: none;
+}
+
+.coracao {
+  position: absolute;
+  font-size: 1.5rem;
+  animation-name: subirCoracao;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  opacity: 0.8;
+  user-select: none;
+}
+
+@keyframes subirCoracao {
+  from {
+    transform: translateY(100%);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(-150%);
+    opacity: 0;
+  }
+}
+
+/* Parallax para imagem */
+.parallax {
+  transition: transform 0.3s ease;
+}
+
+.parallax:hover {
+  transform: scale(1.05);
+}
+
+/* Ajuste do botão áudio fixo */
+#audio-control button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#audio-control button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Fontes e textos */
+body, p, h1, h2, h3, a, button {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+p{
+    color: white;
+}
+/* Fundo escuro para o site */
+body {
+  background-color: #1a0a00; /* tom escuro marrom/laranja */
+  color: #fff; /* texto branco geral */
+}
+
+/* Header com gradiente laranja */
+header {
+  background: linear-gradient(90deg, #ff7300, #5f1313, #ff7300);
+  color: #fff;
+}
+
+/* Título do header */
+header h1 {
+  font-weight: 900;
+}
+
+/* Botões no header */
+.buttons a.btn {
+  /* você pode ajustar a cor dos botões aqui se quiser */
+}
+
+/* Cor do contador de tempo */
+#contador {
+  color: #ff7300; /* laranja */
+  font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+  #historia p {
+    font-size: 1.1rem;
+  }
+}
